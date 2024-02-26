@@ -64,8 +64,9 @@ func (m *mkcert) makeCert(hosts []string) {
 	tpl := &x509.Certificate{
 		SerialNumber: randomSerialNumber(),
 		Subject: pkix.Name{
-			Organization:       []string{"mkcert development certificate"},
+			Organization:       []string{"mkcert developement certificate"},
 			OrganizationalUnit: []string{userAndHostname},
+			CommonName: hosts[0],
 		},
 
 		NotBefore: time.Now(), NotAfter: expiration,
